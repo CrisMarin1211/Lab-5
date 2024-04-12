@@ -1,16 +1,19 @@
+import { products } from './products';
+import { shopping } from './Shopping';
+
 export type Observer = { render: () => void } & HTMLElement;
 
 export type AppState = {
-  something: {};
+	something: {};
 };
 
 export enum SomeActions {
-  "X" = "X",
+	'X' = 'X',
 }
 
 export interface XAction {
-  action: SomeActions.X;
-  payload: Pick<AppState, "something">;
+	action: SomeActions.X;
+	payload: Pick<AppState, 'something'>;
 }
 
 export type Actions = XAction;
