@@ -1,12 +1,13 @@
 import style from './Product.css';
 
-export enum Attribute {
+export enum CardProducts {
 	'uid' = `uid`,
 	'totle' = `totle`,
 	'price' = `price`,
 	'category' = `category`,
 	'description' = `description`,
 	'image' = `image`,
+	'rating' = 'rating',
 }
 
 class products extends HTMLElement {
@@ -16,27 +17,29 @@ class products extends HTMLElement {
 	category?: string;
 	description?: string;
 	image?: string;
+	rating?: string;
 
 	constructor() {
 		super();
 		this.attachShadow({ mode: 'open' });
 	}
 	static get observedAttributes() {
-		const attrs: Record<Attribute, null> = {
+		const attrs: Record<CardProducts, null> = {
 			uid: null,
 			totle: null,
 			price: null,
 			category: null,
 			description: null,
 			image: null,
+			rating: null,
 		};
 
 		return Object.keys(attrs);
 	}
 
-	attributeChangedCallback(propName: Attribute, oldValue: string | undefined, newValue: string = '') {
+	attributeChangedCallback(propName: CardProducts, oldValue: string | undefined, newValue: string = '') {
 		switch (propName) {
-			case Attribute.uid:
+			case CardProducts.uid:
 				this.uid = newValue ? Number(newValue) : undefined;
 				break;
 
@@ -60,15 +63,16 @@ class products extends HTMLElement {
                         <p><b> Category: </b>${this.category}</p>
                         <p><b> Description: </b>${this.description}</p>
                         <p><b> Image: </b>${this.image}</p>
+												<h3> Raiting: ${this.rating}</h3>
                     </div>
                </section>
                `;
 		}
-		const cssProfile = this.ownerDocument.createElement('style');
-		cssProfile.innerHTML = style;
-		this.shadowRoot?.appendChild(cssProfile);
+		const cssProduct = this.ownerDocument.createElement('style');
+		cssProduct.innerHTML = style;
+		this.shadowRoot?.appendChild(cssProduct);
 	}
 }
 
 export default products;
-customElements.define('product ', products);
+customElements.define('product', products);
