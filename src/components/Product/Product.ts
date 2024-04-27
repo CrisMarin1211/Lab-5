@@ -75,4 +75,4 @@ class products extends HTMLElement {
 }
 
 export default products;
-customElements.define('product', products);
+customElements.define('my-product', products);

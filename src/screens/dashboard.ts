@@ -19,7 +19,7 @@ export class Dashboard extends HTMLElement {
 		}
 
 		// appState.forEach((product: any) => {
-		// 	const card = this.ownerDocument.createElement('product');
+		// 	const card = this.ownerDocument.createElement('my-product');
 		// 	card.setAttribute(CardProducts.image, product.image);
 		// 	card.setAttribute(CardProducts.totle, product.title);
 		// 	card.setAttribute(CardProducts.category, product.category);

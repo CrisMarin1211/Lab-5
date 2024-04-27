@@ -58,4 +58,4 @@ class shoppingItem extends HTMLElement {
 }
 
 export default shoppingItem;
-customElements.define('Shopping-Item ', shoppingItem);
+customElements.define('shopping-item', shoppingItem);
