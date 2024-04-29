@@ -25,15 +25,15 @@ class Dashboard extends HTMLElement {
 		const localstorage: any = window.localStorage;
 		const local = JSON.parse(localstorage.getItem('Appstate'));
 
-		local.products.forEach((product: any) => {
-			const card = this.ownerDocument.createElement('my-card') as Card;
-			card.setAttribute(CardProducts.image, product.image);
-			card.setAttribute(CardProducts.title, product.title);
-			card.setAttribute(CardProducts.description, product.description);
-			card.setAttribute(CardProducts.category, product.category);
-			card.setAttribute(CardProducts.price, JSON.stringify(product.price));
-			card.setAttribute(CardProducts.ratingcount, JSON.stringify(product.rating.rate));
-			card.setAttribute(CardProducts.ratingrate, JSON.stringify(product.rating.count));
+		local.products.forEach((products: any) => {
+			const card = this.ownerDocument.createElement('my-product') as Card;
+			card.setAttribute(CardProducts.image, products.image);
+			card.setAttribute(CardProducts.title, products.title);
+			card.setAttribute(CardProducts.description, products.description);
+			card.setAttribute(CardProducts.category, products.category);
+			card.setAttribute(CardProducts.price, JSON.stringify(products.price));
+			card.setAttribute(CardProducts.ratingcount, JSON.stringify(products.rating.rate));
+			card.setAttribute(CardProducts.ratingrate, JSON.stringify(products.rating.count));
 			this.shadowRoot?.appendChild(card);
 		});
 	}

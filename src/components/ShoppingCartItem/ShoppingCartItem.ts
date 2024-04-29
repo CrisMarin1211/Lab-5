@@ -1,15 +1,15 @@
 import styles from './ShoppingCartItem.css';
 
 export enum AttributeItem {
-	'totle' = `totle`,
-	'image' = `image`,
-	'price' = `price`,
+	'image' = 'image',
+	'title' = 'Title',
+	'price' = 'price',
 }
 
 class shoppingItem extends HTMLElement {
-	totle?: string;
 	image?: string;
-	price?: string;
+	Title?: string;
+	price?: number;
 
 	constructor() {
 		super();
@@ -18,15 +18,19 @@ class shoppingItem extends HTMLElement {
 
 	static get observedAttributes() {
 		const attrs: Record<AttributeItem, null> = {
-			totle: null,
 			image: null,
+			Title: null,
 			price: null,
 		};
 
 		return Object.keys(attrs);
 	}
-	attributeChangedCallback(propName: AttributeItem, oldValue: string, newValue: string) {
+	attributeChangedCallback(propName: AttributeItem, oldValue: string | undefined, newValue: string | undefined) {
 		switch (propName) {
+			case AttributeItem.price:
+				this.price = newValue ? Number(newValue) : undefined;
+				break;
+
 			default:
 				this[propName] = newValue;
 				break;
@@ -42,10 +46,10 @@ class shoppingItem extends HTMLElement {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
 
-                  <div class='info-container '>
-                      <p><b> Title: </b>${this.totle}</p>
-                      <p><b> Image: </b>${this.image}</p>
-                      <p><b> Price: </b>${this.price}</p>
+                  <div class='card-shopping'>
+									<img class="image" src="${this.image}" alt="">
+				          <h1 class="title">Title: ${this.title}</h1>
+				          <h3>Price: ${this.price}</h3>
                   </div>
              </section>
              `;

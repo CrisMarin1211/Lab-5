@@ -74,7 +74,7 @@ class products extends HTMLElement {
 				 <p class="text">Description: ${this.description}</p>
 				 <p>Rating: rate: ${this.ratingcount} count: ${this.ratingrate}</p>
 				 <h3>Price: ${this.price}</h3>
-				 <button class="btnelegant" type="button">ADD PRODUCT</button>
+				 <button class="botonleg" type="button">ADD PRODUCT</button>
 		 </div>
  </section>
                `;
