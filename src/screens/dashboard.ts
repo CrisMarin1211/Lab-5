@@ -22,7 +22,7 @@ export class Dashboard extends HTMLElement {
 			this.shadowRoot.innerHTML = ``;
 		}
 
-		appState.forEach((product: any) => {
+		appState.products.forEach((product: any) => {
 			const card = this.ownerDocument.createElement('my-product') as Card;
 			card.setAttribute(CardProducts.image, product.image);
 			card.setAttribute(CardProducts.totle, product.title);
