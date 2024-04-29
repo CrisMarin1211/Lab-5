@@ -1,11 +1,11 @@
 export interface products {
-	id: number;
-	title: string;
-	price: string;
-	category: string;
-	description: string;
 	image: string;
-	raiting: {
-		rate: string;
+	title: string;
+	description: string;
+	category: string;
+	price: number;
+	rating: {
+		rate: number;
+		count: number;
 	};
 }

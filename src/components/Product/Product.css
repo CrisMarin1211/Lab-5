@@ -1,0 +1,55 @@
+.card {
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	width: 300px;
+}
+
+.image {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+
+.title {
+	font-size: 1.5rem;
+	font-weight: 600;
+	padding: 20px;
+	color: #333;
+}
+
+.text {
+	padding: 0 20px 20px;
+	color: #555;
+	line-height: 1.5;
+}
+
+.rating {
+	padding: 0 20px;
+	font-size: 0.9rem;
+	color: #777;
+}
+
+.price {
+	padding: 0 20px 20px;
+	font-size: 1.3rem;
+	font-weight: 600;
+	color: #444;
+}
+
+.btnelegant {
+	background: #333;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	font-size: 1rem;
+	border-radius: 5px;
+	margin: 20px;
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+
+.btnelegant:hover {
+	background: #444;
+}

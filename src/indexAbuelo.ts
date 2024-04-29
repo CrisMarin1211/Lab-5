@@ -18,6 +18,10 @@ class AppContainer extends HTMLElement {
 	render() {
 		const something = this.ownerDocument.createElement('card-dashboard');
 		this.shadowRoot?.appendChild(something);
+
+		const cssAbuelo = this.ownerDocument.createElement('styles');
+		cssAbuelo.innerHTML = styles;
+		this.shadowRoot?.appendChild(cssAbuelo);
 	}
 }
 

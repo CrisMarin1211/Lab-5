@@ -2,23 +2,22 @@ import { SaveshoppingData } from '../../store/actions';
 import style from './Product.css';
 
 export enum CardProducts {
-	'uid' = `uid`,
-	'totle' = `totle`,
-	'price' = `price`,
-	'category' = `category`,
-	'description' = `description`,
-	'image' = `image`,
-	'rating' = 'rating',
+	'image' = 'image',
+	'title' = 'Title',
+	'description' = 'description',
+	'category' = 'category',
+	'price' = 'price',
+	'ratingcount' = 'ratingcount',
+	'ratingrate' = 'ratingrate',
 }
-
 class products extends HTMLElement {
-	uid?: number;
-	totle?: string;
-	price?: string;
-	category?: string;
-	description?: string;
 	image?: string;
-	rating?: string;
+	Title?: string;
+	description?: string;
+	category?: string;
+	price?: number;
+	ratingcount?: number;
+	ratingrate?: number;
 
 	constructor() {
 		super();
@@ -26,28 +25,37 @@ class products extends HTMLElement {
 	}
 	static get observedAttributes() {
 		const attrs: Record<CardProducts, null> = {
-			uid: null,
-			totle: null,
-			price: null,
-			category: null,
-			description: null,
 			image: null,
-			rating: null,
+			Title: null,
+			description: null,
+			category: null,
+			price: null,
+			ratingcount: null,
+			ratingrate: null,
 		};
 
 		return Object.keys(attrs);
 	}
 
-	attributeChangedCallback(propName: CardProducts, oldValue: string | undefined, newValue: string = '') {
+	attributeChangedCallback(propName: CardProducts, oldValue: string | undefined, newValue: string | undefined) {
 		switch (propName) {
-			case CardProducts.uid:
-				this.uid = newValue ? Number(newValue) : undefined;
+			case CardProducts.price:
+				this.price = newValue ? Number(newValue) : undefined;
+				break;
+			case CardProducts.ratingcount:
+				this.ratingcount = newValue ? Number(newValue) : undefined;
+				break;
+
+			case CardProducts.ratingrate:
+				this.ratingrate = newValue ? Number(newValue) : undefined;
 				break;
 
 			default:
 				this[propName] = newValue;
 				break;
 		}
+
+		this.render();
 	}
 
 	connectedCallback() {
@@ -57,17 +65,18 @@ class products extends HTMLElement {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
 
-                    <div class='info-container '>
-                        <p><b> Id: </b>${this.uid}</p>
-                        <p><b> Title: </b>${this.totle}</p>
-                        <p><b> Price: </b>${this.price}</p>
-                        <p><b> Category: </b>${this.category}</p>
-                        <p><b> Description: </b>${this.description}</p>
-                        <p><b> Image: </b>${this.image}</p>
-												<h3> Raiting: ${this.rating}</h3>
-												<button class='Shopping-Button'>Add Shopping Cart </button>
-                    </div>
-               </section>
+			<section class="cardSection">
+
+			<div class="card">
+
+				 <img class="image" src="${this.image}" alt="">
+				 <h1 class="title">Title: ${this.title}</h1>
+				 <p class="text">Description: ${this.description}</p>
+				 <p>Rating: rate: ${this.ratingcount} count: ${this.ratingrate}</p>
+				 <h3>Price: ${this.price}</h3>
+				 <button class="btnelegant" type="button">ADD PRODUCT</button>
+		 </div>
+ </section>
                `;
 		}
 
