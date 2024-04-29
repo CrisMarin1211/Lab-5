@@ -1,5 +1,5 @@
 import './components/indexPadre';
-import { Dashboard } from './screens/dashboard';
+import './screens/dashboard';
 import styles from './IndexAbuelo.css';
 import { appState } from './store/index';
 import { AppState } from './types/store';
@@ -16,7 +16,7 @@ class AppContainer extends HTMLElement {
 	}
 
 	render() {
-		const something = this.ownerDocument.createElement('div');
+		const something = this.ownerDocument.createElement('card-dashboard');
 		this.shadowRoot?.appendChild(something);
 	}
 }
