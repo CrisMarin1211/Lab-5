@@ -1,4 +1,9 @@
 import './components/indexPadre';
+import { Dashboard } from './screens/dashboard';
+import styles from './IndexAbuelo.css';
+import { appState } from './store/index';
+import { AppState } from './types/store';
+import './components/indexPadre';
 
 class AppContainer extends HTMLElement {
 	constructor() {

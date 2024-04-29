@@ -1,3 +1,4 @@
+import { SaveshoppingData } from '../../store/actions';
 import style from './Product.css';
 
 export enum CardProducts {
@@ -64,10 +65,12 @@ class products extends HTMLElement {
                         <p><b> Description: </b>${this.description}</p>
                         <p><b> Image: </b>${this.image}</p>
 												<h3> Raiting: ${this.rating}</h3>
+												<button class='Shopping-Button'>Add Shopping Cart </button>
                     </div>
                </section>
                `;
 		}
+
 		const cssProduct = this.ownerDocument.createElement('style');
 		cssProduct.innerHTML = style;
 		this.shadowRoot?.appendChild(cssProduct);

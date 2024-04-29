@@ -4,16 +4,32 @@ import { shopping } from './Shopping';
 export type Observer = { render: () => void } & HTMLElement;
 
 export type AppState = {
-	something: {};
+	products: products[];
+	shopping: shopping[];
 };
 
-export enum SomeActions {
-	'X' = 'X',
+export enum productActions {
+	'getPRODUCTS' = 'getPRODUCTS',
 }
 
-export interface XAction {
-	action: SomeActions.X;
-	payload: Pick<AppState, 'something'>;
+export enum shoppingActions {
+	'getSHOPPING' = 'getSHOPPING',
+	'saveSHOPPING' = 'saveSHOPPING',
 }
 
-export type Actions = XAction;
+export interface getPRODUCTSAction {
+	action: productActions.getPRODUCTS;
+	payload: products[];
+}
+
+export interface getSHOPPINGAction {
+	action: shoppingActions.getSHOPPING;
+	payload: shopping[];
+}
+
+export interface saveSHOPPINGAction {
+	action: shoppingActions.saveSHOPPING;
+	payload: shopping[];
+}
+
+export type Actions = getPRODUCTSAction | getSHOPPINGAction | saveSHOPPINGAction;
